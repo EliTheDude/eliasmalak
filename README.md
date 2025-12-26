@@ -8,3 +8,6 @@ Focused on aerospace systems, robotics, and manufacturing
 🖨️ Manufacturing automation  
 
 Portfolio coming soon.
+
+
+WOOOOOO
