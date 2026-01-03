@@ -4,10 +4,7 @@ Mechanical Engineering student at Purdue University
 Focused on aerospace systems, robotics, and manufacturing
 
 🚀 Rockets  
-🤖 Autonomous & RF systems  
+🤖 Autonomous Systems
 🖨️ Manufacturing automation  
 
-Portfolio coming soon.
-
-
-WOOOOOO
+Portfolio has been published.
