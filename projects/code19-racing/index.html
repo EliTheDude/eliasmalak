@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Page metadata -->
+  <title>Autonomous Recon Drone – Elias Malak</title>
+  <meta name="description"
+        content="Autonomous recon drone integration work: modular mechanical packaging, breakaway landing gear, RF-aware layout, rapid fabrication, and OpenCV + YOLO-based detection support." />
+
+  <!-- Global stylesheet -->
+  <link rel="stylesheet" href="../../style.css" />
+</head>
+
+<body>
+
+  <!-- Top navigation -->
+  <header class="container" id="top">
+    <nav class="nav">
+      <a class="brand" href="../../">Elias Malak</a>
+
+      <div class="nav-links nav-desktop">
+        <a href="../../">Home</a>
+        <a href="../../#projects">Projects</a>
+        <a href="../../#about">About</a>
+        <a href="../../#skills">Skills</a>
+        <a href="../../#contact">Contact</a>
+        <a class="pill"
+           href="../../assets/PDFs/Elias-Malak-Resume.pdf"
+           target="_blank"
+           rel="noopener">Resume</a>
+      </div>
+
+      <details class="nav-mobile">
+        <summary class="btn nav-menu-btn">Menu</summary>
+        <div class="nav-menu">
+          <a href="../../">Home</a>
+          <a href="../../#projects">Projects</a>
+          <a href="../../#about">About</a>
+          <a href="../../#skills">Skills</a>
+          <a href="../../#contact">Contact</a>
+          <a class="pill"
+             href="../../assets/PDFs/Elias-Malak-Resume.pdf"
+             target="_blank"
+             rel="noopener">Resume</a>
+        </div>
+      </details>
+    </nav>
+  </header>
+
+  <main class="container">
+
+    <!-- ================= HERO ================= -->
+    <section class="section">
+      <button class="img-btn" type="button"
+              data-lightbox-src="../../assets/images/code19-hero.jpg"
+              data-lightbox-alt="In-flight test image of the reconnaissance drone platform">
+        <img
+          class="figure figure-hero"
+          src="../../assets/images/code19-hero.jpg"
+          alt="In-flight test image of the reconnaissance drone platform" />
+      </button>
+
+      <div class="project-hero">
+        <div>
+          <h1 class="project-title">Autonomous Recon Drone</h1>
+          <div class="badges">
+            <span class="chip">3D Printing</span>
+            <span class="chip">Integration</span>
+            <span class="chip">Fusion 360</span>
+            <span class="chip">Python</span>
+          </div>
+          <p class="sub">
+            I worked on a drone platform used to demonstrate autonomy, vision, and RF sensing software developed by a defense-focused company.
+            My role was focused on mechanical integration and testing. That included mounting cameras, onboard compute, radios, and RF hardware,
+            dealing with wiring and shielding issues, and making sure parts could be removed and replaced without tearing the whole system apart.
+            A lot of the work came down to fit, layout, and what happens when the drone lands harder than planned.
+          </p>
+        </div>
+
+        <div class="project-meta panel">
+          <div class="meta-row">
+            <div class="meta-k">Role</div>
+            <div class="meta-v">Mechanical Engineering Intern</div>
+          </div>
+          <div class="meta-row">
+            <div class="meta-k">Goal</div>
+            <div class="meta-v">Build a flight-ready platform that reliably demonstrates autonomy, vision, and RF sensing in real operating conditions.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= OVERVIEW ================= -->
+    <section class="section">
+      <h2>Overview</h2>
+      <p class="muted">
+        The platform combined cameras, onboard compute, radios, and RF detection into a single airframe.
+        From a mechanical standpoint, the challenge was keeping everything accessible and protected while testing was ongoing.
+        Once the full RF stack was powered, layout and shielding started to matter for GPS performance, so parts were moved
+        and rerouted as issues showed up. The goal was a setup that could be flown, adjusted, and repaired without turning
+        every change into a rebuild.
+      </p>
+
+      <figure class="figure-block">
+        <button class="img-btn" type="button"
+                data-lightbox-src="../../assets/images/code19-drone-before-shipping.jpg"
+                data-lightbox-alt="Figure 1 — Ground configuration during integration and testing">
+          <img
+            class="figure figure-media"
+            src="../../assets/images/code19-drone-before-shipping.jpg"
+            alt="Figure 1 — Ground configuration during integration and testing" />
+        </button>
+
+        <figcaption class="figcaption">
+          <strong>Figure 1 — System configuration.</strong> Ground reference view used during integration and testing.
+          (Click image to expand.)
+        </figcaption>
+      </figure>
+    </section>
+
+    <!-- ================= DESIGN APPROACH ================= -->
+    <section class="section">
+      <h2>Design Approach</h2>
+      <p class="muted">
+        Integration decisions were driven by what was most likely to break first.
+        Impacts, vibration, cable fatigue, and RF interference all showed up during testing.
+        The priority was keeping expensive hardware protected and easy to access, even if that meant
+        giving up some packaging efficiency. RF layout also became important once GPS dropouts started
+        appearing with certain hardware combinations.
+      </p>
+
+      <div class="details">
+        <div class="details-summary">Constraints & considerations</div>
+        <div class="details-body">
+          <ul class="list">
+            <li><strong>Packaging:</strong> fit sensors and compute without blocking access or airflow.</li>
+            <li><strong>Serviceability:</strong> parts that break or get handled often needed fast removal.</li>
+            <li><strong>RF effects:</strong> layout and shielding affected GPS lock and stability.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= DESIGNED FAILURE ================= -->
+    <section class="section">
+      <h2>Designed Failure: Landing Gear Breakaway</h2>
+
+      <div class="media-row">
+        <div>
+          <p class="muted">
+            After a few crashes during early testing, it became clear that the landing gear should take the damage instead
+            of the frame or electronics. I designed the landing gear mount with a defined weak point so it would crack in one
+            predictable location. The geometry was adjusted in Fusion 360 using an impact-style load case and then tested
+            through actual crashes. When it failed, it failed where intended, which kept repairs simple.
+          </p>
+
+          <ul class="list">
+            <li><strong>Issue:</strong> rigid landing gear transfers impact loads into the frame.</li>
+            <li><strong>Change:</strong> introduce a controlled weak section in the mount.</li>
+            <li><strong>Result:</strong> repeated failures at the same spot, protecting the rest of the drone.</li>
+          </ul>
+        </div>
+
+        <figure class="figure-block">
+          <button class="img-btn" type="button"
+                  data-lightbox-src="../../assets/images/code19-sim.png"
+                  data-lightbox-alt="Figure 2 — Breakaway landing gear mount with controlled failure location">
+            <img
+              class="figure figure-media"
+              src="../../assets/images/code19-sim.png"
+              alt="Figure 2 — Breakaway landing gear mount with controlled failure location" />
+          </button>
+
+          <figcaption class="figcaption">
+            <strong>Figure 2 — Breakaway mount.</strong> Geometry tuned so the mount splits at a known location.
+            (Click image to expand.)
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ================= SUPPORTING FABRICATION ================= -->
+    <section class="section">
+      <h2>Supporting Fabrication</h2>
+
+      <div class="media-row">
+        <figure class="figure-block">
+          <button class="img-btn" type="button"
+                  data-lightbox-src="../../assets/images/code19-print.jpg"
+                  data-lightbox-alt="Figure 3 — 3D printed mounts and housings used during integration">
+            <img
+              class="figure figure-media"
+              src="../../assets/images/code19-print.jpg"
+              alt="Figure 3 — 3D printed mounts and housings used during integration" />
+          </button>
+          <figcaption class="figcaption">
+            <strong>Figure 3 — Rapid fabrication.</strong> Printed parts used to support iteration and replacement.
+            (Click image to expand.)
+          </figcaption>
+        </figure>
+
+        <div>
+          <p class="muted">
+            3D printing was the main way changes were made quickly.
+            I designed and printed battery cases, sensor mounts, adapters, and protective housings so components
+            could be moved or replaced without reworking the entire layout. These parts were designed around fit,
+            access, and replacement rather than appearance, and were iterated directly from test feedback.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= VISION DETECTION ================= -->
+    <section class="section">
+      <h2>Vision Detection (OpenCV)</h2>
+
+      <div class="media-row">
+        <figure class="figure-block">
+          <button class="img-btn" type="button"
+                  data-lightbox-src="../../assets/images/code19-drone-detection.png"
+                  data-lightbox-alt="Figure 4 — OpenCV-based detection output used during testing">
+            <img
+              class="figure figure-media"
+              src="../../assets/images/code19-drone-detection.png"
+              alt="Figure 4 — OpenCV-based detection output used during testing" />
+          </button>
+          <figcaption class="figcaption">
+            <strong>Figure 4 — Detection output.</strong> OpenCV-based pipeline used during detection experiments.
+            (Click image to expand.)
+          </figcaption>
+        </figure>
+
+        <div>
+          <p class="muted">
+            I built a Python and OpenCV pipeline to support detection when drones appeared very small against the sky.
+            The approach focused on finding the horizon to reduce the search area, then flagging motion-based candidates.
+            This ran alongside a YOLO-based detector: when YOLO could classify a target, it took priority, and when it could not,
+            the OpenCV pipeline still provided usable information for the operator and downstream systems.
+          </p>
+
+          <div class="details">
+            <div class="details-summary">What this enabled</div>
+            <div class="details-body">
+              <ul class="list">
+                <li><strong>Fallback detection:</strong> visibility when learned models struggled.</li>
+                <li><strong>Hybrid approach:</strong> OpenCV complemented YOLO instead of replacing it.</li>
+                <li><strong>Tuning support:</strong> overlays made it easier to see failure cases.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= RESULTS ================= -->
+    <section class="section">
+      <h2>Results</h2>
+
+      <div class="media-row">
+        <div>
+          <ul class="list">
+            <li>Integrated cameras, RF hardware, and onboard compute into a compact drone platform.</li>
+            <li>Designed a breakaway landing gear mount that reduced damage during crashes.</li>
+            <li>Used 3D printing to support fast mechanical iteration and repair.</li>
+            <li>Developed an OpenCV pipeline that complemented YOLO-based detection.</li>
+          </ul>
+        </div>
+
+        <figure class="figure-block figure-final">
+          <button class="img-btn" type="button"
+                  data-lightbox-src="../../assets/images/code19-hero.jpg"
+                  data-lightbox-alt="Figure 5 — Integrated drone configuration used during testing">
+            <img
+              class="figure figure-media figure-portrait"
+              src="../../assets/images/code19-hero.jpg"
+              alt="Figure 5 — Integrated drone configuration used during testing" />
+          </button>
+
+          <figcaption class="figcaption">
+            <strong>Figure 5 — Integrated platform.</strong> Configuration used during testing and iteration.
+            (Click image to expand.)
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ================= WHAT I’D CHANGE ================= -->
+    <section class="section">
+      <h2>What I’d Change Next Time</h2>
+      <ul class="list">
+        <li>Address RF layout and shielding earlier to avoid GPS issues later.</li>
+        <li>Simplify wiring paths further to reduce maintenance time.</li>
+        <li>Reduce overall size while keeping the same level of modularity.</li>
+        <li>Turn the vision prototype into a more repeatable test module.</li>
+      </ul>
+
+      <div class="project-nav">
+        <a class="btn" href="../../#projects">← Back to projects</a>
+        <a class="btn primary"
+           href="#top"
+           onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">
+          Back to top ↑
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="container footer">
+    <div>© <span id="y"></span> Elias Malak</div>
+    <nav class="footer-nav" aria-label="Footer navigation">
+      <a href="../../">Home</a>
+      <a href="../../#projects">Projects</a>
+      <a href="../../#about">About</a>
+      <a href="../../#skills">Skills</a>
+      <a href="../../#contact">Contact</a>
+      <a href="../../assets/PDFs/Elias-Malak-Resume.pdf" target="_blank" rel="noopener">Resume</a>
+    </nav>
+  </footer>
+
+  <!-- Lightbox modal (in-page image viewer) -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <div class="lightbox-backdrop" data-lightbox-close></div>
+
+    <div class="lightbox-dialog" role="dialog" aria-modal="true" aria-label="Image viewer">
+      <button class="lightbox-close" type="button" aria-label="Close" data-lightbox-close>✕</button>
+      <img class="lightbox-img" id="lightboxImg" alt="" />
+      <div class="lightbox-caption" id="lightboxCaption"></div>
+    </div>
+  </div>
+
+  <script>
+    // Footer year
+    document.getElementById("y").textContent = new Date().getFullYear();
+
+    // ================= Lightbox logic =================
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightboxImg");
+    const lightboxCaption = document.getElementById("lightboxCaption");
+
+    function openLightbox(src, alt) {
+      lightboxImg.src = src;
+      lightboxImg.alt = alt || "";
+      lightboxCaption.textContent = alt || "";
+      lightbox.classList.add("is-open");
+      lightbox.setAttribute("aria-hidden", "false");
+      document.body.classList.add("no-scroll");
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove("is-open");
+      lightbox.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("no-scroll");
+      lightboxImg.src = "";
+    }
+
+    // Open handlers
+    document.querySelectorAll("[data-lightbox-src]").forEach(btn => {
+      btn.addEventListener("click", () => {
+        openLightbox(btn.getAttribute("data-lightbox-src"), btn.getAttribute("data-lightbox-alt"));
+      });
+    });
+
+    // Close handlers
+    document.querySelectorAll("[data-lightbox-close]").forEach(el => {
+      el.addEventListener("click", closeLightbox);
+    });
+
+    // ESC to close
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && lightbox.classList.contains("is-open")) closeLightbox();
+    });
+  </script>
+
+</body>
+</html>

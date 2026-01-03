@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Elias Malak</title>
+  <meta name="description" content="Elias Malak — Mechanical Engineering student at Purdue. Aerospace/defense, robotics, and manufacturing-focused engineering portfolio." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header class="container" id="top">
+    <nav class="nav">
+        <a class="brand" href="./">Elias Malak</a>
+
+        <!-- Desktop navigation -->
+        <div class="nav-links nav-desktop">
+            <a href="./">Home</a>
+            <a href="#projects">Projects</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#contact">Contact</a>
+            <a class="pill" href="assets/PDFs/Elias-Malak-Resume.pdf" target="_blank" rel="noopener">
+            Resume
+            </a>
+        </div>
+
+        <!-- Mobile navigation -->
+        <details class="nav-mobile">
+            <summary class="btn nav-menu-btn">Menu</summary>
+            <div class="nav-menu">
+            <a href="./">Home</a>
+            <a href="#projects">Projects</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#contact">Contact</a>
+            <a href="assets/PDFs/Elias-Malak-Resume.pdf" target="_blank" rel="noopener">
+                Resume
+            </a>
+            </div>
+        </details>
+    </nav>
+
+    <!-- ================= HERO ================= -->
+    <section class="hero">
+        <div class="hero-copy">
+            <h1>Mechanical engineering student at Purdue, focused on aerospace and automation.</h1>
+            <p class="sub">
+            I like taking projects from CAD to a working build, prototyping, fixing what breaks,
+            and iterating until it actually works. My work spans rockets, autonomous systems,
+            and manufacturing automation.
+            </p>
+
+            <!-- NDA callout -->
+            <div class="info-pill" style="margin-top:14px;">
+              <span class="info-icon">i</span>
+              <span>Some work is under NDA, so only non-sensitive content is shown.</span>
+            </div>
+
+            <div class="cta-row">
+            <a class="btn primary" href="#projects">View projects</a>
+            <a class="btn" href="assets/PDFs/Elias-Malak-Resume.pdf" target="_blank" rel="noopener">Download resume</a>
+            </div>
+        </div>
+
+        <a class="hero-feature" href="projects/l1-rocket/">
+            <div class="hero-feature-header">
+                <span>Featured project</span>
+            </div>
+
+            <div class="hero-media">
+                <img
+                class="hero-img"
+                src="assets/images/l1-rocket-nx.png"
+                alt="NX CAD assembly used to define interfaces for a nonstandard airframe" />
+            </div>
+
+            <div class="hero-feature-body">
+                <h3>Level-1 High Power Rocket</h3>
+                <p class="muted">
+                Designed and built a Level-1 rocket using custom 3D-printed parts and OpenRocket simulation.
+                </p>
+                <span class="hero-feature-cta">Open project →</span>
+            </div>
+        </a>
+    </section>
+  </header>
+
+  <main class="container">
+    <section id="projects" class="section">
+      <div class="section-title">
+        <h2>Projects</h2>
+        <p class="muted">Five deep-dive pages. Each shows problem → constraints → decisions → build → results.</p>
+      </div>
+
+      <div class="grid">
+        <!-- ================= PROJECT CARDS (drop-in) ================= -->
+
+        <!-- Project Card 1 -->
+        <a class="card" href="projects/l1-rocket/">
+          <div class="card-thumb">
+            <img src="assets/images/l1-rocket-nx.png" alt="Level-1 rocket CAD assembly" loading="lazy" />
+          </div>
+
+          <div class="card-body">
+            <div class="card-top">
+              <h3>Level-1 High Power Rocket</h3>
+              <div class="card-kicker">Structures • Manufacturing</div>
+            </div>
+
+            <p>Designed and built a Level-1 rocket using custom 3D-printed parts and OpenRocket simulation to guide the build.</p>
+
+            <div class="skill-pills" aria-label="Skills used">
+              <span class="skill-pill">Siemens NX</span>
+              <span class="skill-pill">3D Printing</span>
+              <span class="skill-pill">OpenRocket</span>
+              <span class="skill-pill">Testing</span>
+            </div>
+
+            <span class="hero-feature-cta">Open project →</span>
+          </div>
+        </a>
+
+        <!-- Project Card 2 -->
+        <a class="card" href="projects/3d-printer/">
+          <div class="card-thumb">
+            <img src="assets/images/3d-printer-hero-small.jpg" alt="Industrial-scale 3D printer final build" loading="lazy" />
+          </div>
+
+          <div class="card-body">
+            <div class="card-top">
+              <h3>Industrial-Scale 3D Printer Build</h3>
+              <div class="card-kicker">Systems Integration • Manufacturing</div>
+            </div>
+
+            <p>Built a large-format 3D printer from scratch, including the mechanical build, wiring, motion tuning, and calibration.</p>
+
+            <div class="skill-pills" aria-label="Skills used">
+              <span class="skill-pill">3D Printing</span>
+              <span class="skill-pill">Integration</span>
+              <span class="skill-pill">Fusion 360</span>
+              <span class="skill-pill">Documentation</span>
+            </div>
+
+            <span class="hero-feature-cta">Open project →</span>
+          </div>
+        </a>
+
+        <!-- Project Card 3 -->
+        <a class="card" href="projects/code19-racing/">
+          <div class="card-thumb">
+            <img src="assets/images/code19-hero.jpg" alt="Autonomous reconnaissance drone platform with modular mounts and field-ready protection" loading="lazy" />
+          </div>
+
+          <div class="card-body">
+            <div class="card-top">
+              <h3>Autonomous Reconnaissance Drone</h3>
+              <div class="card-kicker">Systems Integration • Manufacturing</div>
+            </div>
+
+            <p>Built and flight-tested a reconnaissance drone, designing modular 3D-printed mounts to protect electronics and enable fast replacement after crashes.</p>
+
+            <div class="skill-pills" aria-label="Skills used">
+              <span class="skill-pill">3D Printing</span>
+              <span class="skill-pill">Integration</span>
+              <span class="skill-pill">Fusion 360</span>
+              <span class="skill-pill">Python</span>
+            </div>
+
+            <span class="hero-feature-cta">Open project →</span>
+          </div>
+        </a>
+
+        <!-- Project Card 4 -->
+        <a class="card" href="projects/purpl/">
+          <div class="card-thumb">
+            <img src="assets/images/purpl-hero.jpg" alt="Propulsion fluid panel with stainless tubing, valves, and clean routing" loading="lazy" />
+          </div>
+
+          <div class="card-body">
+            <div class="card-top">
+              <h3>Rocket Propulsion Fluid Panel Build</h3>
+              <div class="card-kicker">Propulsion • Manufacturing</div>
+            </div>
+
+            <p>Built and documented a propulsion fluid panel, including tubing work, component layout in CAD, and BOM tracking.</p>
+
+            <div class="skill-pills" aria-label="Skills used">
+              <span class="skill-pill">Fabrication</span>
+              <span class="skill-pill">Siemens NX</span>
+              <span class="skill-pill">BOM / Data</span>
+              <span class="skill-pill">Documentation</span>
+            </div>
+
+            <span class="hero-feature-cta">Open project →</span>
+          </div>
+        </a>
+
+        <!-- Project Card 5 -->
+        <a class="card" href="projects/roseburg-forest-products/">
+          <div class="card-thumb">
+            <img src="assets/images/rfp-hero-small.jpg" alt="Engineering automation tools in a CAD environment" loading="lazy" />
+          </div>
+
+          <div class="card-body">
+            <div class="card-top">
+              <h3>Forestry Plant Automation</h3>
+              <div class="card-kicker">CAD Automation • Manufacturing</div>
+            </div>
+
+            <p>Built internal CAD automation tools that generated drawings, BOMs, and load studies, and helped modernize legacy documentation.
+</p>
+
+            <div class="skill-pills" aria-label="Skills used">
+              <span class="skill-pill">Fusion 360</span>
+              <span class="skill-pill">BOM / Data</span>
+              <span class="skill-pill">AutoCAD</span>
+              <span class="skill-pill">Inventor</span>
+            </div>
+
+            <span class="hero-feature-cta">Open project →</span>
+          </div>
+        </a>
+
+      </div>
+
+    </section>
+
+    <section id="about" class="section">
+      <div class="section-title">
+        <h2>About</h2>
+      </div>
+
+      <p class="muted about-lede">
+        I’m a Mechanical Engineering student at Purdue with hands-on experience in CAD,
+        prototyping, and hardware-focused projects. I enjoy working on problems where
+        constraints are real and the solution has to survive manufacturing and use.
+      </p>
+
+      <div class="about-grid">
+        <div class="about-card">
+          <h3 class="mini">How I work</h3>
+          <ul class="list">
+            <li>Learn the system and constraints quickly, then start contributing where I can.</li>
+            <li>Use CAD and analysis to support decisions while iterating.</li>
+            <li>Build, test, and adjust designs based on fit, function, and feedback from the team.</li>
+          </ul>
+        </div>
+
+        <div class="about-card">
+          <h3 class="mini">What I’m looking for</h3>
+          <ul class="list">
+            <li>A summer internship where I can support engineering work and learn from experienced teammates.</li>
+            <li>Exposure to design, manufacturing, testing, or automation in a real engineering environment.</li>
+            <li>Opportunities to take ownership of tasks and improve through feedback.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="skills" class="section">
+        <div class="section-title">
+            <h2>Skills</h2>
+        </div>
+
+        <p class="skill-line">
+          <span class="label">Design Software</span>
+          <span class="content">Siemens NX, Fusion 360, Inventor, AutoCAD</span>
+        </p>
+
+        <p class="skill-line">
+          <span class="label">Programming</span>
+          <span class="content">Python, Java, C, JavaScript, HTML, CSS</span>
+        </p>
+
+        <p class="skill-line">
+          <span class="label">Microsoft Office</span>
+          <span class="content">Word, Excel, PowerPoint</span>
+        </p>
+
+        <p class="skill-line">
+          <span class="label">Professional Skills</span>
+          <span class="content">Project Management, Marketing</span>
+        </p>
+
+        <p class="skill-line">
+          <span class="label">Languages</span>
+          <span class="content">English, Arabic</span>
+        </p>
+
+    </section>
+
+    <section id="contact" class="section">
+        <div class="section-title">
+            <h2>Contact</h2>
+            <p class="muted">Best way to reach me is email.</p>
+        </div>
+
+        <div class="contact-module">
+            <!-- Row 1: Email -->
+            <div class="contact-row">
+            <button
+                class="btn contact-btn copy-email"
+                type="button"
+                data-email="malak.elias.06@gmail.com">
+                Copy email
+            </button>
+
+            <span class="contact-value">malak.elias.06@gmail.com</span>
+            <span class="copy-status" aria-live="polite"></span>
+            </div>
+
+            <!-- Row 2: LinkedIn -->
+            <div class="contact-row">
+            <a
+                class="btn contact-btn"
+                href="https://www.linkedin.com/in/elias-malak/"
+                target="_blank"
+                rel="noopener">
+                LinkedIn
+            </a>
+
+            <span class="contact-value muted">@elias-malak</span>
+            </div>
+        </div>
+
+        <p class="muted contact-footnote">I typically respond within 24 hours.</p>
+    </section>
+    
+  </main>
+
+  <footer class="container footer">
+    <div>© <span id="y"></span> Elias Malak</div>
+    <nav class="footer-nav" aria-label="Footer navigation">
+        <a href="./">Home</a>
+        <a href="#projects">Projects</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+        <a href="assets/PDFs/Elias-Malak-Resume.pdf" target="_blank" rel="noopener">Resume</a>
+    </nav>
+  </footer>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+
+    document.querySelectorAll(".copy-email").forEach(btn => {
+        const status = btn.parentElement.querySelector(".copy-status");
+
+        btn.addEventListener("click", async () => {
+        const email = btn.getAttribute("data-email");
+        try{
+            await navigator.clipboard.writeText(email);
+            status.textContent = "Copied ✓";
+            window.clearTimeout(btn._copyTimer);
+            btn._copyTimer = window.setTimeout(() => {
+            status.textContent = "";
+            }, 1400);
+        }catch(e){
+            status.textContent = "Copy failed";
+            window.clearTimeout(btn._copyTimer);
+            btn._copyTimer = window.setTimeout(() => {
+            status.textContent = "";
+            }, 1600);
+        }
+        });
+    });
+
+    document.querySelectorAll(".nav-menu a").forEach(link => {
+        link.addEventListener("click", () => {
+        const details = link.closest("details");
+        if(details) details.removeAttribute("open");
+        });
+    });
+
+    document.addEventListener("click", (e) => {
+        document.querySelectorAll(".nav-mobile[open]").forEach(menu => {
+        // If the click is outside the menu, close it
+        if (!menu.contains(e.target)) {
+            menu.removeAttribute("open");
+        }
+        });
+    });
+
+    // Close on ESC key (accessibility + polish)
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+        document.querySelectorAll(".nav-mobile[open]").forEach(menu => {
+            menu.removeAttribute("open");
+        });
+        }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404 — Elias Malak</title>
+  <meta name="description" content="Page not found — Elias Malak." />
+
+  <style>
+    :root{
+      --bg:#0f1216;
+      --text:#e6e9ef;
+      --muted:#a3adbf;
+      --line:rgba(255,255,255,0.10);
+      --accent:#7dd3fc;
+    }
+
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;height:100%}
+
+    body{
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+      color:var(--text);
+      line-height:1.55;
+      background:
+        radial-gradient(1200px 600px at 20% 0%,rgba(125,211,252,.12),transparent 60%),
+        radial-gradient(900px 500px at 100% 20%,rgba(167,139,250,.10),transparent 60%),
+        var(--bg);
+      background-repeat:no-repeat;
+      background-size:100% 100%;
+    }
+
+    a{color:inherit;text-decoration:none}
+
+    .container{
+      max-width:980px;
+      margin:0 auto;
+      padding:10px 18px;
+      width:100%;
+    }
+
+    /* ================= NAV ================= */
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+    }
+
+    .brand{font-weight:700}
+
+    .nav-links{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+
+    .nav-links a{
+      color:var(--muted);
+      padding:8px 10px;
+      border-radius:10px;
+    }
+
+    .nav-links a:hover{
+      background:rgba(255,255,255,.06);
+      color:var(--text);
+    }
+
+    .pill{
+      border:1px solid var(--line);
+      padding:8px 12px;
+      border-radius:999px;
+    }
+
+    .nav-mobile{display:none}
+
+    @media (max-width:720px){
+      .nav-desktop{display:none}
+      .nav-mobile{display:block; position:relative}
+    }
+
+    .nav-mobile summary{
+      list-style:none;
+      cursor:pointer;
+      padding:8px 12px;
+      border-radius:10px;
+      border:1px solid var(--line);
+    }
+
+    .nav-mobile summary::-webkit-details-marker{display:none}
+
+    .nav-menu{
+      position:absolute;
+      right:0;
+      top:calc(100% + 8px);
+      min-width:220px;
+      padding:10px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background:rgba(16,18,22,0.95);
+      box-shadow:0 20px 60px rgba(0,0,0,.45);
+      display:grid;
+      gap:6px;
+      z-index:1000;
+    }
+
+    .nav-mobile:not([open]) .nav-menu{display:none}
+
+    .nav-menu a{
+      padding:10px;
+      border-radius:10px;
+      color:var(--muted);
+    }
+
+    .nav-menu a:hover{
+      background:rgba(255,255,255,.06);
+      color:var(--text);
+    }
+
+    /* ================= HERO ================= */
+    main{flex:1}
+
+    .hero{
+      padding:28px 0 16px;
+    }
+
+    .hero h1{
+      margin:0 0 14px;
+      font-size:clamp(28px,4vw,42px);
+      line-height:1.1;
+    }
+
+    .sub{
+      color:var(--muted);
+      max-width:65ch;
+      font-size:16px;
+    }
+
+    .cta-row{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:24px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:10px 14px;
+      border-radius:12px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.03);
+      color:var(--text);
+      font-size:14px;
+    }
+
+    .btn:hover{background:rgba(255,255,255,.06)}
+
+    .primary{
+      border-color:rgba(125,211,252,.35);
+      background:rgba(125,211,252,.12);
+    }
+
+    /* ================= FOOTER ================= */
+    .footer{
+      border-top:1px solid var(--line);
+      padding:18px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    .footer-nav{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+
+    .footer-nav a{
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .footer-nav a:hover{color:var(--text)}
+
+    @media (max-width:720px){
+      .footer{
+        flex-direction:column-reverse;
+        align-items:flex-start;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="container">
+  <nav class="nav">
+    <a class="brand" href="./">Elias Malak</a>
+
+    <div class="nav-links nav-desktop">
+      <a href="./">Home</a>
+      <a href="./#projects">Projects</a>
+      <a href="./#about">About</a>
+      <a href="./#skills">Skills</a>
+      <a href="./#contact">Contact</a>
+      <a class="pill" href="assets/PDFs/Elias-Malak-Resume.pdf" target="_blank" rel="noopener">Resume</a>
+    </div>
+
+    <details class="nav-mobile">
+      <summary>Menu</summary>
+      <div class="nav-menu">
+        <a href="./">Home</a>
+        <a href="./#projects">Projects</a>
+        <a href="./#about">About</a>
+        <a href="./#skills">Skills</a>
+        <a href="./#contact">Contact</a>
+        <a href="assets/PDFs/Elias-Malak-Resume.pdf" target="_blank" rel="noopener">Resume</a>
+      </div>
+    </details>
+  </nav>
+</header>
+
+<main class="container">
+  <section class="hero">
+    <h1>404</h1>
+    <p class="sub">
+      This page doesn’t exist, or the link you followed is outdated.
+    </p>
+
+    <div class="cta-row">
+      <a class="btn primary" href="./">Home</a>
+      <a class="btn" href="./#projects">Projects</a>
+    </div>
+  </section>
+</main>
+
+<footer class="container footer">
+  <div>© <span id="y"></span> Elias Malak</div>
+  <nav class="footer-nav">
+    <a href="./">Home</a>
+    <a href="./#projects">Projects</a>
+    <a href="./#about">About</a>
+    <a href="./#skills">Skills</a>
+    <a href="./#contact">Contact</a>
+    <a href="assets/PDFs/Elias-Malak-Resume.pdf" target="_blank" rel="noopener">Resume</a>
+  </nav>
+</footer>
+
+<script>
+  document.getElementById("y").textContent = new Date().getFullYear();
+
+  document.querySelectorAll(".nav-menu a").forEach(link=>{
+    link.addEventListener("click",()=>{
+      const d=link.closest("details");
+      if(d) d.removeAttribute("open");
+    });
+  });
+
+  document.addEventListener("click",e=>{
+    document.querySelectorAll(".nav-mobile[open]").forEach(m=>{
+      if(!m.contains(e.target)) m.removeAttribute("open");
+    });
+  });
+
+  document.addEventListener("keydown",e=>{
+    if(e.key==="Escape"){
+      document.querySelectorAll(".nav-mobile[open]").forEach(m=>m.removeAttribute("open"));
+    }
+  });
+</script>
+
+</body>
+</html>

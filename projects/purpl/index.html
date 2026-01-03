@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Page metadata -->
+  <title>PURPL – Gas-Generator Fluid Panel – Elias Malak</title>
+  <meta name="description"
+        content="Gas-generator fluid panel work through PURPL: BOM from P&IDs, stainless tubing fabrication, NX-based routing and drawings, and build support through hotfire." />
+
+  <!-- Global stylesheet -->
+  <link rel="stylesheet" href="../../style.css" />
+</head>
+
+<body>
+
+  <!-- Top navigation -->
+  <header class="container" id="top">
+    <nav class="nav">
+      <a class="brand" href="../../">Elias Malak</a>
+
+      <div class="nav-links nav-desktop">
+        <a href="../../">Home</a>
+        <a href="../../#projects">Projects</a>
+        <a href="../../#about">About</a>
+        <a href="../../#skills">Skills</a>
+        <a href="../../#contact">Contact</a>
+        <a class="pill"
+           href="../../assets/Elias_Malak_Resume.pdf"
+           target="_blank"
+           rel="noopener">Resume</a>
+      </div>
+
+      <details class="nav-mobile">
+        <summary class="btn nav-menu-btn">Menu</summary>
+        <div class="nav-menu">
+          <a href="../../">Home</a>
+          <a href="../../#projects">Projects</a>
+          <a href="../../#about">About</a>
+          <a href="../../#skills">Skills</a>
+          <a href="../../#contact">Contact</a>
+          <a class="pill"
+             href="../../assets/Elias_Malak_Resume.pdf"
+             target="_blank"
+             rel="noopener">Resume</a>
+        </div>
+      </details>
+    </nav>
+  </header>
+
+  <main class="container">
+
+    <!-- ================= HERO ================= -->
+    <section class="section">
+      <button class="img-btn" type="button"
+              data-lightbox-src="../../assets/images/purpl-hero.jpg"
+              data-lightbox-alt="Gas-generator fluid panel section with stainless tubing lines, valves, and routing">
+        <img
+          class="figure figure-hero"
+          src="../../assets/images/purpl-hero.jpg"
+          alt="Gas-generator fluid panel section with stainless tubing lines, valves, and routing" />
+      </button>
+
+      <div class="project-hero">
+        <div>
+          <h1 class="project-title">PURPL – Gas-Generator Fluid Panel</h1>
+          <div class="badges">
+            <span class="chip">Fabrication</span>
+            <span class="chip">Siemens NX</span>
+            <span class="chip">BOM / Data</span>
+            <span class="chip">Documentation</span>
+          </div>
+          <p class="sub">
+            I joined PURPL and was first given a P&amp;ID for a fluid panel and asked to build a BOM from it.
+            That meant figuring out fittings, standards, sizes, and how everything was actually supposed to connect.
+            After that, I spent time at Zucrow Labs helping bend and fit stainless lines by hand on another panel
+            to understand what works in practice.
+            When the gas-generator panel came up, the earlier paper layouts were starting to fall apart,
+            so I took on routing the full panel in NX, reviewed it with mentors, and produced drawings
+            that could actually be built.
+            Those drawings were used to fabricate the lines, and I stayed involved through assembly and hotfire.
+          </p>
+        </div>
+
+        <div class="project-meta panel">
+          <div class="meta-row">
+            <div class="meta-k">Role</div>
+            <div class="meta-v">BOM, tubing routing, drawings, and build support</div>
+          </div>
+          <div class="meta-row">
+            <div class="meta-k">Goal</div>
+            <div class="meta-v">Support gas-generator testing by designing and fabricating buildable, serviceable fluid panel plumbing.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= WHAT I OWNED ================= -->
+    <section class="section">
+      <h2>What I Worked On</h2>
+      <p class="muted">
+        The work followed a pretty clear progression.
+        I started by pulling a BOM from a P&amp;ID so the team actually knew what fittings and interfaces were needed.
+        Then I helped bend and install lines by hand at Zucrow to get a feel for spacing, bend limits, and access.
+        When it became clear that paper layouts were too loose to scale up, I routed the gas-gen panel in NX,
+        reviewed it with others, and turned that layout into drawings with real dimensions and bend callouts.
+      </p>
+
+      <div class="details">
+        <div class="details-summary">Main responsibilities</div>
+        <div class="details-body">
+          <ul class="list">
+            <li><strong>P&amp;ID to BOM:</strong> extracted fittings and interfaces so parts matched the schematic.</li>
+            <li><strong>Hands-on tubing:</strong> helped fabricate and fit stainless lines at Zucrow.</li>
+            <li><strong>NX routing:</strong> laid out the full gas-generator panel with clearances and access in mind.</li>
+            <li><strong>Drawings:</strong> produced bend angles and straight lengths that fabrication could follow.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= NX DOCUMENTATION ================= -->
+    <section class="section">
+      <h2>CAD Routing & Drawings</h2>
+
+      <div class="media-row">
+        <figure class="figure-block">
+          <button class="img-btn" type="button"
+                  data-lightbox-src="../../assets/images/purpl-nx.png"
+                  data-lightbox-alt="Figure 1 — NX routing and component layout for the gas-generator fluid panel">
+            <img
+              class="figure figure-media"
+              src="../../assets/images/purpl-nx.png"
+              alt="Figure 1 — NX routing and component layout for the gas-generator fluid panel" />
+          </button>
+
+          <figcaption class="figcaption">
+            <strong>Figure 1 — NX routing.</strong> Panel layout used for review and dimensional drawing generation.
+            (Click image to expand.)
+          </figcaption>
+        </figure>
+
+        <div>
+          <p class="muted">
+            Moving the layout into NX made the work reviewable and buildable.
+            It let us catch interference, check access to fittings, and agree on routing
+            before anyone cut tubing.
+            A lot of time here went into tracking down vendor models so the interfaces were right.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FABRICATION ================= -->
+    <section class="section">
+      <h2>Tubing Fabrication</h2>
+      <p class="muted">
+        Once drawings were done, the lines were fabricated and installed.
+        Even with CAD, most lines needed small adjustments during fit-up.
+        The earlier time spent bending tubing by hand helped a lot when things
+        didn’t land exactly where the model said they would.
+      </p>
+
+      <div class="info-pill">
+        <span class="info-icon">i</span>
+        <span>Tap any photo to expand</span>
+      </div>
+
+      <div class="process-strip">
+        <button class="process-item img-btn" type="button"
+                data-lightbox-src="../../assets/images/purpl-wip-1.jpg"
+                data-lightbox-alt="Stainless tubing preparation and bending">
+          <img src="../../assets/images/purpl-wip-1.jpg" alt="Stainless tubing preparation and bending" />
+        </button>
+
+        <button class="process-item img-btn" type="button"
+                data-lightbox-src="../../assets/images/purpl-wip-2.jpg"
+                data-lightbox-alt="Installed tubing runs on the gas-generator panel">
+          <img src="../../assets/images/purpl-wip-2.jpg" alt="Installed tubing runs on the gas-generator panel" />
+        </button>
+      </div>
+    </section>
+
+    <!-- ================= RESULTS ================= -->
+    <section class="section">
+      <h2>Results</h2>
+
+      <div class="media-row">
+        <div>
+          <ul class="list">
+            <li>Built a complete BOM directly from a P&amp;ID.</li>
+            <li>Helped fabricate stainless lines and learned tube bending through hands-on work.</li>
+            <li>Routed and documented a gas-generator fluid panel in NX.</li>
+            <li>Produced drawings used to fabricate lines for a successful hotfire.</li>
+          </ul>
+        </div>
+
+        <figure class="figure-block figure-final">
+          <button class="img-btn" type="button"
+                  data-lightbox-src="../../assets/images/purpl-hero.jpg"
+                  data-lightbox-alt="Figure 2 — Completed gas-generator fluid panel section">
+            <img
+              class="figure figure-media figure-portrait"
+              src="../../assets/images/purpl-hero.jpg"
+              alt="Figure 2 — Completed gas-generator fluid panel section" />
+          </button>
+
+          <figcaption class="figcaption">
+            <strong>Figure 2 — Finished Build.</strong> Installed tubing and components after fabrication.
+            (Click image to expand.)
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ================= WHAT I’D CHANGE ================= -->
+    <section class="section">
+      <h2>What I’d Do Differently</h2>
+      <ul class="list">
+        <li>Move into CAD earlier so layout decisions aren’t locked in by paper templates.</li>
+        <li>Automate some of the repetitive drawing callouts for bends and straight lengths.</li>
+        <li>Start routing sooner to reduce last-minute schedule pressure.</li>
+      </ul>
+
+      <div class="project-nav">
+        <a class="btn" href="../../#projects">← Back to projects</a>
+        <a class="btn primary"
+           href="#top"
+           onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">
+          Back to top ↑
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="container footer">
+    <div>© <span id="y"></span> Elias Malak</div>
+    <nav class="footer-nav">
+      <a href="../../">Home</a>
+      <a href="../../#projects">Projects</a>
+      <a href="../../#about">About</a>
+      <a href="../../#skills">Skills</a>
+      <a href="../../#contact">Contact</a>
+      <a href="../../assets/Elias_Malak_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+    </nav>
+  </footer>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <div class="lightbox-backdrop" data-lightbox-close></div>
+    <div class="lightbox-dialog">
+      <button class="lightbox-close" data-lightbox-close>✕</button>
+      <img class="lightbox-img" id="lightboxImg" />
+      <div class="lightbox-caption" id="lightboxCaption"></div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+
+    const lightbox = document.getElementById("lightbox");
+    const img = document.getElementById("lightboxImg");
+    const cap = document.getElementById("lightboxCaption");
+
+    function openLightbox(src, alt) {
+      img.src = src;
+      cap.textContent = alt || "";
+      lightbox.classList.add("is-open");
+      document.body.classList.add("no-scroll");
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove("is-open");
+      document.body.classList.remove("no-scroll");
+      img.src = "";
+    }
+
+    document.querySelectorAll("[data-lightbox-src]").forEach(b =>
+      b.addEventListener("click", () =>
+        openLightbox(b.dataset.lightboxSrc, b.dataset.lightboxAlt)
+      )
+    );
+
+    document.querySelectorAll("[data-lightbox-close]").forEach(b =>
+      b.addEventListener("click", closeLightbox)
+    );
+
+    document.addEventListener("keydown", e => {
+      if (e.key === "Escape") closeLightbox();
+    });
+  </script>
+
+</body>
+</html>

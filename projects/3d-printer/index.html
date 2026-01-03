@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Page metadata -->
+  <title>Industrial-Scale 3D Printer Build – Elias Malak</title>
+  <meta name="description"
+        content="Industrial-scale 3D printer built from scratch: large-format motion system, high-temp hotend, heated bed, wiring, and rapid iteration for reliability." />
+
+  <!-- Global stylesheet -->
+  <link rel="stylesheet" href="../../style.css" />
+</head>
+
+<body>
+
+  <!-- Top navigation -->
+  <header class="container" id="top">
+    <nav class="nav">
+        <a class="brand" href="../../">Elias Malak</a>
+
+        <!-- Desktop navigation -->
+        <div class="nav-links nav-desktop">
+            <a href="../../">Home</a>
+            <a href="../../#projects">Projects</a>
+            <a href="../../#about">About</a>
+            <a href="../../#skills">Skills</a>
+            <a href="../../#contact">Contact</a>
+            <a class="pill"
+            href="../../assets/PDFs/Elias-Malak-Resume.pdf"
+            target="_blank"
+            rel="noopener">Resume</a>
+        </div>
+
+        <!-- Mobile navigation -->
+        <details class="nav-mobile">
+            <summary class="btn nav-menu-btn">Menu</summary>
+            <div class="nav-menu">
+                <a href="../../">Home</a>
+                <a href="../../#projects">Projects</a>
+                <a href="../../#about">About</a>
+                <a href="../../#skills">Skills</a>
+                <a href="../../#contact">Contact</a>
+                <a class="pill"
+                href="../../assets/PDFs/Elias-Malak-Resume.pdf"
+                target="_blank"
+                rel="noopener">Resume</a>
+            </div>
+        </details>
+    </nav>
+  </header>
+
+  <main class="container">
+
+    <!-- ================= HERO ================= -->
+    <section class="section">
+      <!-- Clickable hero image (opens in-page lightbox) -->
+      <button class="img-btn" type="button"
+              data-lightbox-src="../../assets/images/3d-printer-final-build.jpg"
+              data-lightbox-alt="Large-format 3D printer built from scratch with removable glass bed and high-temp toolhead">
+        <img
+          class="figure figure-hero"
+          src="../../assets/images/3d-printer-final-build.jpg"
+          alt="Large-format 3D printer built from scratch with removable glass bed and high-temp toolhead" />
+      </button>
+
+      <div class="project-hero">
+        <div>
+          <h1 class="project-title">Industrial-Scale 3D Printer Build</h1>
+          <div class="badges">
+            <span class="chip">3D Printing</span>
+            <span class="chip">Integration</span>
+            <span class="chip">Fusion 360</span>
+            <span class="chip">Documentation</span>
+          </div>
+          <p class="sub">
+            This build was a personal challenge I took on over my first winter break of college. I have used 3D printers
+            for years, but I wanted to understand the full machine, not just the slicer settings. I built a large-format
+            printer from scratch and focused on the parts that usually cause problems in real use: motion alignment,
+            wiring, thermal control, and repeatable calibration. The goal was a printer that is easy to run, easy to
+            diagnose, and consistent on large parts.
+          </p>
+        </div>
+
+        <!-- Project snapshot (kept short to avoid a long page) -->
+        <div class="project-meta panel">
+          <div class="meta-row">
+            <div class="meta-k">Role</div>
+            <div class="meta-v">Designer and builder</div>
+          </div>
+          <div class="meta-row">
+            <div class="meta-k">Goal</div>
+            <div class="meta-v">Build a reliable large-format printer and learn how to debug every subsystem</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= DESIGN APPROACH ================= -->
+    <section class="section">
+      <h2>Design Approach</h2>
+      <p class="muted">
+        I approached the build like a system integration problem. I started with the user-facing requirements I cared
+        about most: a large removable glass bed, stable temperatures, and a control workflow that felt practical. From
+        there I worked through structure and motion, then wiring and electronics, and finally calibration and print
+        validation. On a machine this size, small alignment issues show up fast, so the focus was on rigidity,
+        serviceability, and predictable behavior.
+      </p>
+
+      <div class="details">
+        <div class="details-summary">Constraints & early decisions</div>
+        <div class="details-body">
+          <ul class="list">
+            <li><strong>Large build envelope:</strong> prioritized bed flatness, rigidity, and usable Z height for real parts.</li>
+            <li><strong>High-temp capability:</strong> designed around a high-temperature toolhead and a heated bed suitable for large prints.</li>
+            <li><strong>Day-to-day usability:</strong> built in a touchscreen and Wi-Fi workflow so loading jobs and monitoring prints was simple.</li>
+          </ul>
+        </div>
+      </div>
+
+      <figure class="figure-block">
+        <button class="img-btn" type="button"
+                data-lightbox-src="../../assets/images/3d-printer-effector-model.png"
+                data-lightbox-alt="Figure 1 — Overall printer layout showing bed, motion axes, electronics placement, and service access">
+          <img
+            class="figure figure-media"
+            src="../../assets/images/3d-printer-effector-model.png"
+            alt="Figure 1 — Overall printer layout showing bed, motion axes, electronics placement, and service access" />
+        </button>
+
+        <figcaption class="figcaption">
+          <strong>Figure 1 — System layout.</strong> The layout was built around alignment, clean wiring paths, and access for maintenance.
+          (Click image to expand.)
+        </figcaption>
+      </figure>
+    </section>
+
+    <!-- ================= VALIDATION & FAILURE ANALYSIS ================= -->
+    <section class="section">
+    <h2>Validation & Failure Analysis</h2>
+    <p class="muted">
+        Two problems taught me the most during early prints: heated bed temperature behavior and part-cooling airflow.
+        Both produced clear signatures in printed parts, which made it easier to isolate the cause and verify fixes.
+    </p>
+
+    <!-- Bed heating: before + in-print transition (PID → bang-bang) -->
+    <div class="compare-row">
+        <figure class="figure-block">
+        <button class="img-btn" type="button"
+                data-lightbox-src="../../assets/images/3d-printer-bangbang-only.jpg"
+                data-lightbox-alt="Bang-bang (on/off) bed heating produced periodic ridges linked to temperature cycling">
+            <div class="figure-compare">
+                <img
+                    src="../../assets/images/3d-printer-bangbang-only.jpg"
+                    alt="Bang-bang (on/off) bed heating produced periodic ridges linked to temperature cycling" />
+            </div>
+        </button>
+        <figcaption class="figcaption">
+            <strong>Bang-bang bed control.</strong> On/off temperature cycling produced evenly spaced ridges.
+            (Click image to expand.)
+        </figcaption>
+        </figure>
+
+        <figure class="figure-block">
+        <button class="img-btn" type="button"
+                data-lightbox-src="../../assets/images/3d-printer-bangbang-off.jpg"
+                data-lightbox-alt="Single print showing a visible surface transition after switching from bang-bang to PID bed control mid-print">
+            <div class="figure-compare">
+                <img
+                    src="../../assets/images/3d-printer-bangbang-off.jpg"
+                    alt="Single print showing a visible surface transition after switching from bang-bang to PID bed control mid-print" />
+            </div>
+        </button>
+        <figcaption class="figcaption">
+            <strong>Bed off, then bang-bang control on again</strong> Switching control mid-print created a visible surface transition and confirmed the cause.
+            (Click image to expand.)
+        </figcaption>
+        </figure>
+    </div>
+
+    <div class="details">
+        <div class="details-summary">Heated bed control: what happened and what I changed</div>
+        <div class="details-body">
+        <ul class="list">
+            <li><strong>Observed symptom:</strong> repeating ridges that did not match typical motion artifacts.</li>
+            <li><strong>Diagnosis:</strong> the standalone controller was using bang-bang control, so the bed temperature oscillated.</li>
+            <li><strong>Fix:</strong> removed the standalone electronics, wired the thermistor into my Duet board, and ran PID control.</li>
+        </ul>
+        </div>
+    </div>
+
+    <!-- Fan duct failure -->
+    <div style="height:18px"></div>
+
+    <div class="media-row">
+        <figure class="figure-block">
+        <button class="img-btn" type="button"
+                data-lightbox-src="../../assets/images/3d-printer-fan.jpg"
+                data-lightbox-alt="Early remote fan duct concept that did not deliver airflow effectively to the nozzle">
+            <img
+            class="figure figure-media"
+            src="../../assets/images/3d-printer-fan.jpg"
+            alt="Early remote fan duct concept that did not deliver airflow effectively to the nozzle" />
+        </button>
+        <figcaption class="figcaption">
+            <strong>Part cooling iteration.</strong> The first duct design looked reasonable but failed in practice due to poor airflow coupling.
+            (Click image to expand.)
+        </figcaption>
+        </figure>
+
+        <div>
+        <p class="muted">
+            To reduce weight on the toolhead, I moved the fan away from the nozzle and tried to duct air down to the part.
+            The idea worked on paper, but most of the airflow leaked out instead of making it to the nozzle. I ended up
+            validating airflow with quick tests and learned that cooling needs to be designed and verified like any other
+            subsystem, not assumed.
+        </p>
+        </div>
+    </div>
+    </section>
+
+    <!-- ================= RESULTS ================= -->
+    <section class="section">
+      <h2>Results</h2>
+
+      <div class="media-row">
+        <div>
+          <ul class="list">
+            <li>Built a large-format printer end-to-end, including motion, wiring, controls, and calibration workflow.</li>
+            <li>Identified and fixed a print-quality issue caused by bang-bang bed control by integrating PID control through the Duet.</li>
+            <li>Integrated Wi-Fi and a touchscreen interface to make loading and monitoring prints straightforward.</li>
+          </ul>
+        </div>
+
+        <figure class="figure-block figure-final">
+            <button class="img-btn" type="button"
+                    data-lightbox-src="../../assets/images/3d-printer-final-build.jpg"
+                    data-lightbox-alt="Figure 3 — Completed large-format printer ready for continued iteration and enclosure upgrades">
+                <img
+                class="figure figure-media figure-portrait"
+                src="../../assets/images/3d-printer-final-build.jpg"
+                alt="Figure 3 — Completed large-format printer ready for continued iteration and enclosure upgrades" />
+            </button>
+
+            <figcaption class="figcaption">
+                <strong>Figure 3 — Final build.</strong> Working large-format system, ready for continued upgrades.
+                (Click image to expand.)
+            </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ================= WHAT I’D CHANGE ================= -->
+    <section class="section">
+      <h2>What I’d Change Next Time</h2>
+      <ul class="list">
+        <li>Plan an enclosure from the start, since large builds benefit a lot from stable chamber temperature.</li>
+        <li>Refine the removable glass bed interface so removal is safer and easier with big prints.</li>
+        <li>Improve wiring and strain relief to reduce cable movement and long-term fatigue.</li>
+        <li>Redesign part cooling around a purpose-built blower and simpler duct geometry, validated early with quick tests.</li>
+        <li>Keep the same system-level approach, but tighten the build process now that I know where the real failure modes are.</li>
+      </ul>
+
+      <div class="project-nav">
+        <a class="btn" href="../../#projects">← Back to projects</a>
+        <a class="btn primary"
+           href="#top"
+           onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">
+          Back to top ↑
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="container footer">
+    <div>© <span id="y"></span> Elias Malak</div>
+    <nav class="footer-nav" aria-label="Footer navigation">
+        <a href="../../">Home</a>
+        <a href="../../#projects">Projects</a>
+        <a href="../../#about">About</a>
+        <a href="../../#skills">Skills</a>
+        <a href="../../#contact">Contact</a>
+        <a href="../../assets/PDFs/Elias-Malak-Resume.pdf" target="_blank" rel="noopener">Resume</a>
+    </nav>
+  </footer>
+
+  <!-- Lightbox modal (in-page image viewer) -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <div class="lightbox-backdrop" data-lightbox-close></div>
+
+    <div class="lightbox-dialog" role="dialog" aria-modal="true" aria-label="Image viewer">
+      <button class="lightbox-close" type="button" aria-label="Close" data-lightbox-close>✕</button>
+      <img class="lightbox-img" id="lightboxImg" alt="" />
+      <div class="lightbox-caption" id="lightboxCaption"></div>
+    </div>
+  </div>
+
+  <script>
+    // Footer year
+    document.getElementById("y").textContent = new Date().getFullYear();
+
+    // ================= Lightbox logic =================
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightboxImg");
+    const lightboxCaption = document.getElementById("lightboxCaption");
+
+    function openLightbox(src, alt) {
+      lightboxImg.src = src;
+      lightboxImg.alt = alt || "";
+      lightboxCaption.textContent = alt || "";
+      lightbox.classList.add("is-open");
+      lightbox.setAttribute("aria-hidden", "false");
+      document.body.classList.add("no-scroll");
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove("is-open");
+      lightbox.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("no-scroll");
+      lightboxImg.src = "";
+    }
+
+    // Open handlers
+    document.querySelectorAll("[data-lightbox-src]").forEach(btn => {
+      btn.addEventListener("click", () => {
+        openLightbox(btn.getAttribute("data-lightbox-src"), btn.getAttribute("data-lightbox-alt"));
+      });
+    });
+
+    // Close handlers
+    document.querySelectorAll("[data-lightbox-close]").forEach(el => {
+      el.addEventListener("click", closeLightbox);
+    });
+
+    // ESC to close
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && lightbox.classList.contains("is-open")) closeLightbox();
+    });
+  </script>
+
+</body>
+</html>
